@@ -74,16 +74,26 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-    'dsn'      => '',
-    'hostname' => getenv('DB_HOST'),   // Railway host
-    'username' => getenv('DB_USER'),   // Railway user
-    'password' => getenv('DB_PASS'),   // Railway password
-    'database' => getenv('DB_NAME'),   // Railway db name
+    'dsn'   => '',
+    'hostname' => getenv('MYSQLHOST'),
+    'username' => getenv('MYSQLUSER'),
+    'password' => getenv('MYSQLPASSWORD'),
+    'database' => getenv('MYSQL_DATABASE'),
     'dbdriver' => 'mysqli',
-    'port'     => getenv('DB_PORT'),   // Railway port (51384)
-    'db_debug' => TRUE,
+    'port'     => getenv('MYSQLPORT'),
+    'dbprefix' => '',
+    'pconnect' => FALSE,
+    'db_debug' => (ENVIRONMENT !== 'production'),
+    'cache_on' => FALSE,
+    'cachedir' => '',
     'char_set' => 'utf8',
     'dbcollat' => 'utf8_general_ci',
+    'swap_pre' => '',
+    'encrypt' => FALSE,
+    'compress' => FALSE,
+    'stricton' => FALSE,
+    'failover' => array(),
+    'save_queries' => TRUE
 );
 
 
