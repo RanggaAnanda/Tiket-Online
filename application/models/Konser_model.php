@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class konser_model extends CI_Model {
+class Konser_model extends CI_Model {
 
 	public function create()
     {
