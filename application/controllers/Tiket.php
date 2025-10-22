@@ -5,12 +5,12 @@ class Tiket extends CI_Controller {
      public function __construct() //akses paling pertama kali
     {
         parent::__construct(); //Memanggil konstruktor kelas induk
-        $this->load->model('tiket_model'); //mengelola data
+        $this->load->model('Tiket_model'); //mengelola data
     }
 
     public function index() //Daftar cat list
 	{
-        $data['tiket']=$this->tiket_model->read(); //memanggil model read
+        $data['tiket']=$this->Tiket_model->read(); //memanggil model read
         $this->load->view('tiket/tiket_list',$data);
 	}
 
@@ -18,10 +18,10 @@ class Tiket extends CI_Controller {
     {
         if ($this->input->post('submit')) {
 
-            $this->load->model('tiket_model'); //mengelola data
+            $this->load->model('Tiket_model'); //mengelola data
 
             //fungsi create
-            $this->tiket_model->create();
+            $this->Tiket_model->create();
 
             //perubahan query jika berhasil, jika query lebih dari 0 maka berhasil
             if($this->db->affected_rows()>0) {
@@ -33,13 +33,13 @@ class Tiket extends CI_Controller {
             //mengembalikan ke petugas list
             redirect('tiket');
         }
-        $this->load->view('tiket/form_tiket');
+        $this->load->view('Tiket/form_tiket');
     }
 
     public function edit($id) //edit list berdasarkan id
     {
         if($this->input->post('submit')) {
-            $this->tiket_model->update($id);
+            $this->Tiket_model->update($id);
 
             if($this->db->affected_rows()>0) {
                 $this->session->set_flashdata('msg','<p style="color:green">Tiket successfult update!!</p>');
@@ -50,13 +50,13 @@ class Tiket extends CI_Controller {
             redirect('tiket');
             } 
 
-        $data['tic']=$this->tiket_model->read_by($id);
+        $data['tic']=$this->Tiket_model->read_by($id);
         $this->load->view('tiket/form_tiket', $data);
     }
 
     public function delete($id) //parameter delete dengan fungsi id
     {
-        $this->tiket_model->delete($id);//memanggil model
+        $this->Tiket_model->delete($id);//memanggil model
 
         if($this->db->affected_rows()>0) {
             $this->session->set_flashdata('msg','<p style="color:green">Tiket successfult delete!!</p>');
@@ -69,7 +69,7 @@ class Tiket extends CI_Controller {
 
     public function detail($id)
     {
-        $data['tic'] = $this->tiket_model->read_by($id);
+        $data['tic'] = $this->Tiket_model->read_by($id);
         if (!$data['tic']) {
             show_404();
         }
@@ -86,18 +86,18 @@ class Tiket extends CI_Controller {
             $tanggal_beli = date('Y-m-d');
 
             // Ambil data tiket dari database
-            $tiket = $this->tiket_model->read_by($id_tiket);
+            $tiket = $this->Tiket_model->read_by($id_tiket);
             $namakonser = $tiket->namakonser;
 
             // Simpan transaksi
-            $this->tiket_model->transaksi($id_tiket, $nama, $nohp, $email, $namakonser);
+            $this->Tiket_model->transaksi($id_tiket, $nama, $nohp, $email, $namakonser);
 
             // Redirect ke report atau halaman sukses
             redirect('tiket/transaksi');
         }
 
         // Tampilkan form beli tiket
-        $data['tic'] = $this->tiket_model->read_by($id_tiket);
+        $data['tic'] = $this->Tiket_model->read_by($id_tiket);
         $this->load->view('tiket/form_beli', $data);
     }
 
@@ -106,7 +106,7 @@ class Tiket extends CI_Controller {
 
     public function transaksi()
     {
-        $data['tic'] = $this->tiket_model->get_all_transaksi();
+        $data['tic'] = $this->Tiket_model->get_all_transaksi();
         $this->load->view('tiket/report', $data);
     }
 
