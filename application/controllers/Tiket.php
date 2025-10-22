@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); 
 
-class tiket extends CI_Controller {
+class Tiket extends CI_Controller {
 
      public function __construct() //akses paling pertama kali
     {
