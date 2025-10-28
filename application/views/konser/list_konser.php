@@ -95,8 +95,6 @@
                 <i class="fa-solid fa-ticket"></i> Beli Tiket
               </a>
               <?php endif; ?> 
-                <i class="fa-solid fa-ticket"></i> Beli Tiket
-              </a>
             </div>
           </div>
           <?php if ($this->session->userdata('role') == 'admin'): ?>
