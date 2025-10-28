@@ -22,6 +22,7 @@
       object-fit: cover;
       border-radius: 16px;
     }
+	  
 
     .carousel-inner {
       border-radius: 16px;
