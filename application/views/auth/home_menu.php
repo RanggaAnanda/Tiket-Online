@@ -137,7 +137,9 @@
             <p class="card-text text-muted mb-1"><i class="fa-regular fa-calendar-days"></i> <?= date('d M Y', strtotime($k->tanggal)) ?></p>
             <p class="card-text fw-semibold text-dark"><i class="fa-solid fa-location-dot"></i> <?= $k->lokasi ?></p>
             <a href="<?= site_url('konser/detail/' . $k->id_konser) ?>" class="btn btn-outline-primary btn-sm mt-2">Lihat Detail</a>
+						<?php if ($this->session->userdata('role') === 'customer'): ?>
             <a href="<?= site_url('pembelian/form/' . $k->id_konser) ?>" class="btn btn-success btn-sm mt-2">Beli Tiket</a>
+            <?php endif; ?>
           </div>
         </div>
       </div>
