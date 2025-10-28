@@ -145,7 +145,7 @@
         <!-- Tombol Aksi -->
         <div class="d-flex justify-content-end gap-3">
             <a href="<?= site_url('konser') ?>" class="btn btn-secondary">← Kembali</a>
-            <button type="submit" name="submit" class="btn btn-success">💾 Simpan</button>
+			<input type="submit" name="submit" value="💾Simpan" class="btn btn-primary">
         </div>
     </form>
 </div>
