@@ -121,7 +121,9 @@
             <div class="d-flex justify-content-between">
                 <a href="<?= site_url('konser') ?>" class="btn btn-secondary">← Kembali</a>
                 <!-- <button type="submit" name="submit" class="btn btn-primary">🛒 Beli Tiket</button> -->
+                <?php if ($this->session->userdata('role') === 'customer'): ?>
                 <input type="submit" name="submit" value="Beli Tiket" class="btn btn-primary">
+                <?php endif; ?>
             </div>
         </form>
     </div>
