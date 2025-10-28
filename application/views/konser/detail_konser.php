@@ -155,7 +155,9 @@
                         <h4 class="text-end text-primary fw-bold">
                             Rp<?= $harga_terendah ? number_format($harga_terendah, 0, ',', '.') : '---' ?>
                         </h4>
+                        <?php if ($this->session->userdata('role') === 'customer'): ?>
                         <a href="<?= site_url('pembelian/form/' . $konser->id_konser) ?>" class="btn btn-primary w-100 mt-3">Beli Tiket</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
