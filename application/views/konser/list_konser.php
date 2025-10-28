@@ -90,7 +90,11 @@
               <a href="<?= site_url('konser/detail/' . $k->id_konser) ?>" class="btn btn-outline-primary btn-sm">
                 <i class="fa-solid fa-eye"></i> Detail
               </a>
+              <?php if ($this->session->userdata('role') === 'customer'): ?>
               <a href="<?= site_url('pembelian/form/' . $k->id_konser) ?>" class="btn btn-success btn-sm">
+                <i class="fa-solid fa-ticket"></i> Beli Tiket
+              </a>
+              <?php endif; ?> 
                 <i class="fa-solid fa-ticket"></i> Beli Tiket
               </a>
             </div>
